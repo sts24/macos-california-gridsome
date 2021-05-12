@@ -2,6 +2,7 @@
     <Layout>
     <div class="article">
       <h1>{{ $page.macRelease.title }}</h1>
+      <div v-html="$page.macRelease.content"/>
     </div>
   </Layout>
 </template>
@@ -10,6 +11,7 @@
   query MacRelease ($path: String!) {
     macRelease (path: $path) {
       title
+      content
     }
   }
 </page-query>
