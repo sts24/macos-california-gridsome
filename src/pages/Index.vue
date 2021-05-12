@@ -3,7 +3,7 @@
     <ul>
       <li v-for="edge in $page.releases.edges" :key="edge.node.id" >
      
-        <g-link :to="edge.node.slug">
+        <g-link :to="edge.node.path">
           <h2 v-html="edge.node.title"/>
         </g-link>
       </li>
@@ -19,6 +19,7 @@
           id
           title
           slug
+          path
         }
       }
     }
