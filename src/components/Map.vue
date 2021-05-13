@@ -22,12 +22,17 @@
 </template>
 
 <script>
-import { MglMap, MglMarker } from "vue-mapbox";
+let Vmapbox = {};
+
+if (process.isClient) {
+  //import { MglMap, MglMarker } from "vue-mapbox";
+  Vmapbox = require("vue-mapbox");
+}
 
 export default {
   components: {
-    MglMap,
-    MglMarker,
+    MglMap: Vmapbox.MglMap,
+    MglMarker: Vmapbox.MglMarker,
   },
   name: "Map",
   props: ["article"],
@@ -42,7 +47,14 @@ export default {
     };
   },
   mounted() {
-    this.allLocations = this.$static.allLocations.edges;
+    if (process.isClient) {
+      this.allLocations = this.$static.allLocations.edges;
+      // this.coords = this.formatCoords(newData.location);
+      //
+      if (this.$page !== null) {
+        this.zoom = 7;
+      }
+    }
   },
   methods: {
     formatCoords(data) {
@@ -51,8 +63,11 @@ export default {
       return newCoords;
     },
     isCurrentMarker(markerSlug) {
-      const markerColor =
-        markerSlug == this.$page.macRelease.slug ? "blue" : "orange";
+      let markerColor = "orange";
+      if (this.$page !== null) {
+        markerColor =
+          markerSlug == this.$page.macRelease.slug ? "blue" : "orange";
+      }
       return markerColor;
     },
     markerClicked(path) {
