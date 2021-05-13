@@ -15,7 +15,7 @@
 
 <static-query>
   query Navigation {
-    releases: allMacRelease {
+    releases: allMacRelease(sortBy: "releaseDate", order: ASC) {
         edges {
             node {
                 id
