@@ -14,6 +14,18 @@ module.exports = {
         typeName: 'MacRelease',
         route: '/:slug'
       }
+    },
+    {
+      use: 'gridsome-source-cloudinary',
+      options: {
+        cloudName: process.env.CLOUDNAME,
+        apiKey: process.env.API_KEY,
+        apiSecret: process.env.API_SECRET,
+        resourceOptions: {
+          type: "upload",
+          prefix: 'macos-california'
+        }
+      }
     }
   ]
 }
