@@ -1,26 +1,19 @@
 <template>
   <Layout>
-    <main class="app"></main>
+    <main class="app">
+      <Map />
+    </main>
   </Layout>
 </template>
 
-<page-query>
-  query {
-    releases: allMacRelease {
-      edges {
-        node {
-          id
-          title
-          slug
-          path
-        }
-      }
-    }
-  }
-</page-query>
 
 <script>
+import Map from "~/components/Map.vue";
+
 export default {
+  components: {
+    Map,
+  },
   metaInfo: {
     title: "Hello, world!",
   },
