@@ -51,7 +51,8 @@ export default {
       return newCoords;
     },
     isCurrentMarker(markerSlug) {
-      const markerColor = markerSlug == this.article?.slug ? "blue" : "orange";
+      const markerColor =
+        markerSlug == this.$page.macRelease.slug ? "blue" : "orange";
       return markerColor;
     },
     markerClicked(path) {
