@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'macOS California',
+  siteDescription: 'A tour of the Golden State through the years of macOS',
   plugins: [
     {
       use: '@gridsome/source-filesystem',

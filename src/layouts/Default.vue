@@ -1,6 +1,9 @@
 <template>
   <div class="app-container">
-    <header class="app-header">{{ $static.metadata.siteName }}</header>
+    <header class="app-header">
+      <div class="app-title">{{ $static.metadata.siteName }}</div>
+      <div class="app-description">{{ $static.metadata.siteDescription }}</div>
+    </header>
     <Navigation />
     <slot />
   </div>
@@ -20,6 +23,7 @@ export default {
 query {
   metadata {
     siteName
+    siteDescription
   }
 }
 </static-query>
@@ -96,8 +100,11 @@ body {
 
 .app-header {
   text-align: center;
-  font-size: 2em;
+
   padding: 1rem;
+}
+.app-title {
+  font-size: 2em;
   font-weight: bold;
 }
 
