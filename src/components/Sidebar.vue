@@ -1,5 +1,8 @@
 <template>
-  <section class="location-content">
+  <section
+    class="location-content"
+    :style="'max-height: ' + sidebarHeight + 'px'"
+  >
     <h1>{{ systemTitle(article) }}</h1>
 
     <CloudImage
@@ -7,6 +10,8 @@
       options="c_fill,h_675,w_1200"
       :alt="'desktop wallpaper for ' + article.title"
       class=""
+      width="1200"
+      height="675"
     />
 
     <p class="release-date">Released in {{ article.releaseDate }}</p>
@@ -23,9 +28,32 @@ export default {
   components: {
     CloudImage,
   },
+  data() {
+    return {
+      sidebarHeight: "auto",
+    };
+  },
+  mounted() {
+    this.updateHeight();
+
+    window.addEventListener("resize", this.updateHeight);
+  },
+  updated() {
+    this.updateHeight();
+  },
   methods: {
     systemTitle(article) {
       return "macOS " + article.version + " " + article.title;
+    },
+    updateHeight() {
+      const sidebar = window.document.querySelector(".location-content");
+      const appHeaderHeight = window.document.querySelector(".app-header")
+        .offsetHeight;
+      const navHeight = window.document.querySelector(".app-nav").offsetHeight;
+
+      const globalElementsHeight = appHeaderHeight + navHeight;
+
+      this.sidebarHeight = window.innerHeight - globalElementsHeight - 24;
     },
   },
 };
@@ -67,10 +95,7 @@ export default {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 
-    max-height: none;
-
     position: absolute;
-    top: 0;
     right: 0;
     bottom: 0;
   }

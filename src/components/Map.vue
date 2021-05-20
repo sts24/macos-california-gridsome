@@ -1,38 +1,39 @@
 <template>
   <section class="map-area">
     <ClientOnly>
-      <MglMap
-        ref="calMap"
-        :accessToken="accessToken"
-        :mapStyle="mapStyle"
-        :center="coords"
-        :zoom="zoom"
-      >
-        <MglMarker
-          :coordinates="formatCoords(marker.node.location)"
-          scale="1"
-          :color="isCurrentMarker(marker.node.slug)"
-          @click="markerClicked(marker.node.path)"
-          v-for="(marker, index) in allLocations"
-          :key="index"
-        />
-      </MglMap>
+      <transition name="fade" appear>
+        <MglMap
+          ref="calMap"
+          :accessToken="accessToken"
+          :mapStyle="mapStyle"
+          :center="coords"
+          :zoom="zoom"
+        >
+          <MacMapMarker
+            v-for="marker in allLocations"
+            :key="marker.node.slug"
+            :coordinates="formatCoords(marker.node.location)"
+            :path="marker.node.path"
+          />
+        </MglMap>
+      </transition>
     </ClientOnly>
   </section>
 </template>
 
 <script>
+import MacMapMarker from "~/components/MacMapMarker.vue";
+
 let Vmapbox = {};
 
 if (process.isClient) {
-  //import { MglMap, MglMarker } from "vue-mapbox";
   Vmapbox = require("vue-mapbox");
 }
 
 export default {
   components: {
+    MacMapMarker,
     MglMap: Vmapbox.MglMap,
-    MglMarker: Vmapbox.MglMarker,
   },
   name: "Map",
   props: ["article"],
@@ -61,17 +62,6 @@ export default {
       const coordArray = data.split(",");
       const newCoords = [coordArray[1], coordArray[0]];
       return newCoords;
-    },
-    isCurrentMarker(markerSlug) {
-      let markerColor = "orange";
-      if (this.$page !== null) {
-        markerColor =
-          markerSlug == this.$page.macRelease.slug ? "blue" : "orange";
-      }
-      return markerColor;
-    },
-    markerClicked(path) {
-      this.$router.push(path);
     },
   },
   watch: {
@@ -125,7 +115,7 @@ query AllLocations {
   grid-row: 1 / 2;
 }
 
-.map-marker {
+.mapboxgl-marker {
   cursor: pointer;
 }
 #map {

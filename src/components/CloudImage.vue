@@ -5,13 +5,15 @@
     class="cld-image"
     :cssClass="cssClass"
     loading="lazy"
+    :width="width"
+    :height="height"
   />
 </template>
 
 <script>
 export default {
   name: "CloudImage",
-  props: ["imageSlug", "options", "alt", "cssClass"],
+  props: ["imageSlug", "options", "alt", "cssClass", "width", "height"],
   data() {
     return {
       allImages: [],
@@ -57,6 +59,8 @@ query ImageData {
                 url
                 id
                 version
+                width
+                height
             }
         }
     }

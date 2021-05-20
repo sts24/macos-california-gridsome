@@ -43,6 +43,11 @@ export default {
 .app-nav {
   padding: 1rem;
   overflow-x: scroll;
+  z-index: 100;
+  background: var(--overlay);
+  backdrop-filter: saturate(180%) blur(10px);
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
 }
 
 .app-nav > ul {

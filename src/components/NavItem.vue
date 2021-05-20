@@ -6,6 +6,8 @@
         options="c_fill,h_200,w_200"
         :alt="'desktop wallpaper for ' + title"
         class=""
+        width="200"
+        height="200"
       />
       <span class="link-number">{{ version }}</span>
     </g-link>
@@ -56,7 +58,7 @@ export default {
 .release-icon img.cld-image {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .release-icon[aria-current="page"] .cld-image {

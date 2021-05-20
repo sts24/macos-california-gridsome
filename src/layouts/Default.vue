@@ -100,16 +100,26 @@ body {
 
 .app-header {
   text-align: center;
-
+  z-index: 100;
   padding: 1rem;
+  background: var(--overlay);
+  backdrop-filter: saturate(180%) blur(10px);
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 .app-title {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
+}
+.app-description {
+  font-size: 1rem;
 }
 
 .app {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
   display: grid;
+
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
