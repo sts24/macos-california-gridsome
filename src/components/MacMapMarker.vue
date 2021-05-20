@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     markerClicked(path) {
-      this.$router.push(path);
+      this.$router.push(path).catch(() => {});
     },
     changeCurrentMarker(newPath) {
       const newMarkerColor = newPath == this.path ? "blue" : "orange";
