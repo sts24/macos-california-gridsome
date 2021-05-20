@@ -1,8 +1,5 @@
 <template>
-  <section
-    class="location-content"
-    :style="'max-height: ' + sidebarHeight + 'px'"
-  >
+  <section class="location-content" :style="'max-height: ' + sidebarHeight">
     <h1>{{ systemTitle(article) }}</h1>
 
     <CloudImage
@@ -53,7 +50,12 @@ export default {
 
       const globalElementsHeight = appHeaderHeight + navHeight;
 
-      this.sidebarHeight = window.innerHeight - globalElementsHeight - 24;
+      if (window.innerWidth >= 768) {
+        this.sidebarHeight =
+          window.innerHeight - globalElementsHeight - 24 + "px";
+      } else {
+        this.sidebarHeight = window.innerHeight * 0.4 + "px";
+      }
     },
   },
 };
@@ -73,23 +75,25 @@ export default {
   background: var(--overlay);
   backdrop-filter: saturate(180%) blur(10px);
 
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   border: 1px solid white;
   box-shadow: 0 0 1rem rgba(black, 0.5);
 
   order: 2;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem;
 
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   z-index: 100;
 
-  max-height: 50vh;
   overflow-y: scroll;
 
-  margin: 1rem;
+  position: absolute;
+  bottom: 0;
+
+  margin: 1rem 1rem 0 1rem;
 
   @media (min-width: 768px) {
     grid-column: 2 / 3;
@@ -98,6 +102,9 @@ export default {
     position: absolute;
     right: 0;
     bottom: 0;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 10px;
   }
 }
 

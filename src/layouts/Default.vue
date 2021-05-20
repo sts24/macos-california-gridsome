@@ -108,11 +108,19 @@ body {
   grid-row: 1 / 2;
 }
 .app-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 }
 .app-description {
-  font-size: 1rem;
+  font-size: 0.875rem;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .app {

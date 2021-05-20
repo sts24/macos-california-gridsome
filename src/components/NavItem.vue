@@ -37,8 +37,8 @@ export default {
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin: 0 0.5rem;
 
   @media (min-width: 768px) {
