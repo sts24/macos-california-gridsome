@@ -22,11 +22,13 @@ export default {
     Sidebar,
     Map,
   },
-  metaInfo: {
-    // title: formatReleaseTitle(
-    //   this.$page.macRelease.title,
-    //   this.$page.macRelease.version
-    // ),
+  metaInfo() {
+    return {
+      title: formatReleaseTitle(
+        this.$page.macRelease.title,
+        this.$page.macRelease.version
+      ),
+    };
   },
 };
 </script>
