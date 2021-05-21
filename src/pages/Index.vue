@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <main class="app">
-      <Map />
+      <ClientOnly>
+        <transition appear><Map /></transition
+      ></ClientOnly>
     </main>
   </Layout>
 </template>
@@ -13,9 +15,6 @@ import Map from "~/components/Map.vue";
 export default {
   components: {
     Map,
-  },
-  metaInfo: {
-    title: "Hello, world!",
   },
 };
 </script>

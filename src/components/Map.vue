@@ -1,27 +1,25 @@
 <template>
   <section class="map-area">
-    <ClientOnly>
-      <transition name="fade" appear>
-        <MglMap
-          ref="calMap"
-          :accessToken="accessToken"
-          :mapStyle="mapStyle"
-          :center="coords"
-          :zoom="zoom"
-        >
-          <MacMapMarker
-            v-for="marker in allLocations"
-            :key="marker.node.slug"
-            :coordinates="formatCoords(marker.node.location)"
-            :path="marker.node.path"
-          />
-        </MglMap>
-      </transition>
-    </ClientOnly>
+    <MglMap
+      ref="calMap"
+      :accessToken="accessToken"
+      :mapStyle="mapStyle"
+      :center="coords"
+      :zoom="zoom"
+    >
+      <MacMapMarker
+        v-for="marker in allLocations"
+        :key="marker.node.slug"
+        :coordinates="formatCoords(marker.node.location)"
+        :path="marker.node.path"
+        @centerMap="centerMap"
+      />
+    </MglMap>
   </section>
 </template>
 
 <script>
+import { formatCoords } from "../utilities/format.js";
 import MacMapMarker from "~/components/MacMapMarker.vue";
 
 let Vmapbox = {};
@@ -36,7 +34,6 @@ export default {
     MglMap: Vmapbox.MglMap,
   },
   name: "Map",
-  props: ["article"],
   data() {
     return {
       accessToken:
@@ -50,32 +47,20 @@ export default {
   mounted() {
     if (process.isClient) {
       this.allLocations = this.$static.allLocations.edges;
-      // this.coords = this.formatCoords(newData.location);
-      //
       if (this.$page !== null) {
         this.zoom = 7;
       }
     }
   },
   methods: {
-    formatCoords(data) {
-      const coordArray = data.split(",");
-      const newCoords = [coordArray[1], coordArray[0]];
-      return newCoords;
+    centerMap(newCoords) {
+      this.coords = newCoords;
     },
+    formatCoords,
   },
   watch: {
-    article(newData, oldData) {
-      this.coords = this.formatCoords(newData.location);
+    $route: function () {
       this.zoom = 7;
-
-      //const asyncActions = this.$refs.calMap.actions;
-
-      // const newParams = this.$refs.calMap.flyTo({
-      // 	center: this.coords,
-      // 	zoom: 7,
-      // 	speed: 1
-      // })
     },
   },
   metaInfo: {

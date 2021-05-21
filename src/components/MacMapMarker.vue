@@ -1,22 +1,25 @@
 <template>
   <ClientOnly>
     <transition name="fade" appear>
-      <!-- <MglMarker :coordinates.sync="coordinates" scale="1" :key="path">
-        <g-link :to="path" slot="marker">{{ path }}</g-link>
-      </MglMarker> -->
       <MglMarker
         :coordinates.sync="coordinates"
         scale="1"
         :key="randomKey"
         :color="markerColor"
-        @click="markerClicked(path)"
+        @click="markerClicked(path, coordinates)"
       />
     </transition>
   </ClientOnly>
 </template>
 
+<static-query>
+
+</static-query>
+
 
 <script>
+import { formatCoords } from "../utilities/format.js";
+
 let Vmapbox = {};
 
 if (process.isClient) {
@@ -37,11 +40,20 @@ export default {
   watch: {
     $route: function (to) {
       this.changeCurrentMarker(to.path);
+      if (to.path == this.path) {
+        this.$emit("centerMap", this.coordinates);
+      }
     },
   },
+  mounted() {
+    this.changeCurrentMarker(this.$route.path);
+    this.$emit("centerMap", formatCoords(this.$page.macRelease.location));
+  },
   methods: {
-    markerClicked(path) {
+    markerClicked(path, coordinates) {
       this.$router.push(path).catch(() => {});
+
+      this.$emit("centerMap", coordinates);
     },
     changeCurrentMarker(newPath) {
       const newMarkerColor = newPath == this.path ? "blue" : "orange";

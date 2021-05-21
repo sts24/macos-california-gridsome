@@ -1,7 +1,9 @@
 <template>
   <Layout>
     <main class="app">
-      <Map :article="$page.macRelease" />
+      <ClientOnly>
+        <transition appear> <Map /></transition
+      ></ClientOnly>
       <Sidebar :article="$page.macRelease" />
     </main>
   </Layout>

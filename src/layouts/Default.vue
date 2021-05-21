@@ -2,7 +2,10 @@
   <div class="app-container">
     <header class="app-header">
       <div class="app-title">{{ $static.metadata.siteName }}</div>
-      <div class="app-description">{{ $static.metadata.siteDescription }}</div>
+      <div class="app-description">
+        {{ $static.metadata.siteDescription }} by
+        <a href="https://www.smithscott.net" target="_blank">Scott Smith</a>
+      </div>
     </header>
     <Navigation />
     <slot />
@@ -117,7 +120,9 @@ body {
 }
 .app-description {
   font-size: 0.875rem;
-
+  a {
+    color: var(--link);
+  }
   @media (min-width: 768px) {
     font-size: 1rem;
   }
