@@ -47,12 +47,10 @@ export default {
   },
   mounted() {
     this.changeCurrentMarker(this.$route.path);
-    this.$emit("centerMap", formatCoords(this.$page.macRelease.location));
   },
   methods: {
     markerClicked(path, coordinates) {
       this.$router.push(path).catch(() => {});
-
       this.$emit("centerMap", coordinates);
     },
     changeCurrentMarker(newPath) {

@@ -47,8 +47,10 @@ export default {
   mounted() {
     if (process.isClient) {
       this.allLocations = this.$static.allLocations.edges;
+
       if (this.$page !== null) {
         this.zoom = 7;
+        this.coords = formatCoords(this.$page.macRelease.location);
       }
     }
   },

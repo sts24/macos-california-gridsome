@@ -2,14 +2,17 @@
   <Layout>
     <main class="app">
       <ClientOnly>
-        <transition appear> <Map /></transition
-      ></ClientOnly>
+        <transition appear>
+          <Map />
+        </transition>
+      </ClientOnly>
       <Sidebar :article="$page.macRelease" />
     </main>
   </Layout>
 </template>
 
 <script>
+import { formatReleaseTitle } from "~/utilities/format.js";
 import Sidebar from "~/components/Sidebar.vue";
 import Map from "~/components/Map.vue";
 
@@ -18,6 +21,12 @@ export default {
   components: {
     Sidebar,
     Map,
+  },
+  metaInfo: {
+    // title: formatReleaseTitle(
+    //   this.$page.macRelease.title,
+    //   this.$page.macRelease.version
+    // ),
   },
 };
 </script>

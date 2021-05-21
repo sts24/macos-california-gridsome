@@ -16,5 +16,8 @@ export default {
   components: {
     Map,
   },
+  metaInfo: {
+    title: "macOS California",
+  },
 };
 </script>
