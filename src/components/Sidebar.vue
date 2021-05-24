@@ -14,6 +14,15 @@
     <p class="release-date">Released in {{ article.releaseDate }}</p>
 
     <div class="content" v-html="article.content" />
+
+    <p>
+      <small
+        >Geographical information for indigenous nations sourced from
+        <a href="https://native-land.ca/" target="_blank"
+          >native-land.ca</a
+        ></small
+      >
+    </p>
   </section>
 </template>
 
@@ -102,9 +111,13 @@ export default {
     position: absolute;
     right: 0;
     bottom: 0;
-    padding: 2rem;
+    padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 2rem;
   }
 }
 
@@ -117,7 +130,7 @@ p.release-date {
   font-size: 1em;
   margin-bottom: 1em;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     font-size: 1.25em;
   }
 }
@@ -133,5 +146,10 @@ p.release-date {
     width: 100%;
     height: auto;
   }
+}
+
+p small {
+  font-size: 75%;
+  color: #555;
 }
 </style>

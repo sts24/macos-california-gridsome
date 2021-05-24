@@ -12,6 +12,21 @@
   </div>
 </template>
 
+
+<static-query>
+query {
+  metadata {
+    siteName
+    siteDescription
+    siteUrl
+    authorName
+    authorTwitter
+    shareImage
+  }
+}
+</static-query>
+
+
 <script>
 import Navigation from "~/components/Navigation.vue";
 
@@ -19,17 +34,83 @@ export default {
   components: {
     Navigation,
   },
+  metaInfo() {
+    return {
+      meta: [
+        {
+          key: "og:title",
+          name: "og:title",
+          content: this.$static.metadata.siteName,
+        },
+        { key: "og:type", name: "og:type", content: "website" },
+        {
+          key: "og:url",
+          name: "og:url",
+          content: this.$static.metadata.siteUrl,
+        },
+        {
+          key: "og:image",
+          name: "og:image",
+          content:
+            this.$static.metadata.siteUrl + this.$static.metadata.shareImage,
+        },
+        {
+          key: "og:image:width",
+          name: "og:image:width",
+          content: "1200",
+        },
+        {
+          key: "og:image:height",
+          name: "og:image:height",
+          content: "630",
+        },
+        {
+          key: "og:description",
+          name: "og:description",
+          content: this.$static.metadata.siteDescription,
+        },
+        {
+          key: "og:site_name",
+          name: "og:site_name",
+          content: this.$static.metadata.siteName,
+        },
+
+        {
+          key: "twitter:card",
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          key: "twitter:site",
+          name: "twitter:site",
+          content: this.$static.metadata.authorTwitter,
+        },
+        {
+          key: "twitter:title",
+          name: "twitter:title",
+          content: this.$static.metadata.siteName,
+        },
+        {
+          key: "twitter:description",
+          name: "twitter:description",
+          content: this.$static.metadata.siteDescription,
+        },
+        {
+          key: "twitter:creator",
+          name: "twitter:creator",
+          content: this.$static.metadata.authorTwitter,
+        },
+        {
+          key: "twitter:image",
+          name: "twitter:image",
+          content:
+            this.$static.metadata.siteUrl + this.$static.metadata.shareImage,
+        },
+      ],
+    };
+  },
 };
 </script>
-
-<static-query>
-query {
-  metadata {
-    siteName
-    siteDescription
-  }
-}
-</static-query>
 
 <style lang="scss">
 :root {

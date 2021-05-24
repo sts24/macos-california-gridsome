@@ -8,6 +8,18 @@
   </Layout>
 </template>
 
+<static-query>
+query {
+  metadata {
+    siteName
+    siteDescription
+    siteUrl
+    authorName
+    authorTwitter
+    shareImage
+  }
+}
+</static-query>
 
 <script>
 import Map from "~/components/Map.vue";
@@ -16,8 +28,13 @@ export default {
   components: {
     Map,
   },
-  metaInfo: {
-    title: "macOS California",
+  metaInfo() {
+    return {
+      title:
+        this.$static.metadata.siteName +
+        " | " +
+        this.$static.metadata.siteDescription,
+    };
   },
 };
 </script>

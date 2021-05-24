@@ -7,6 +7,12 @@
 module.exports = {
   siteName: 'macOS California',
   siteDescription: 'A tour of the Golden State through the years of macOS',
+  siteUrl: process.env.DEPLOY_URL || 'https://macoscalifornia.netlify.app',
+  metadata: {
+    authorTwitter: '@scottsmith',
+    authorName: 'Scott Smith',
+    shareImage: '/share-image.png',
+  },
   titleTemplate: '%s',
   plugins: [
     {
