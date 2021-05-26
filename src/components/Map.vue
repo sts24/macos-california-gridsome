@@ -12,6 +12,7 @@
         :key="marker.node.slug"
         :coordinates="formatCoords(marker.node.location)"
         :path="marker.node.path"
+        :popupLabel="marker.node.version + ' ' + marker.node.title"
         @centerMap="centerMap"
       />
     </MglMap>
@@ -86,6 +87,7 @@ query AllLocations {
                 slug
                 path
                 location
+                version
             }
         }
     }

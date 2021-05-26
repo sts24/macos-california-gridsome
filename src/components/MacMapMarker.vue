@@ -6,20 +6,48 @@
         scale="1"
         :key="randomKey"
         :color="markerColor"
+        anchor="bottom"
+        @mouseenter="popupStatus = true"
+        @mouseleave="popupStatus = false"
         @click="markerClicked(path, coordinates)"
-      />
+      >
+        <MglPopup
+          :coordinates="coordinates"
+          anchor="top"
+          :showed="popupStatus"
+          :closeButton="false"
+          :closeOnClick="true"
+        >
+          <div class="popup-label">{{ popupLabel }}</div>
+        </MglPopup>
+      </MglMarker>
     </transition>
   </ClientOnly>
 </template>
 
-<static-query>
+<style lang="scss">
+.mapboxgl-popup-tip {
+  display: none;
+}
+.mapboxgl-map .mapboxgl-popup-content {
+  padding: 0.75rem;
+  border-radius: 10px;
+  box-shadow: 0 0 1rem rgba(black, 0.5);
 
-</static-query>
+  background: var(--overlay);
+  border: 1px solid white;
+  backdrop-filter: saturate(180%) blur(10px);
+}
 
+.popup-label {
+  line-height: 1em;
+  font-weight: bold;
+  font-family: var(--font);
+  font-size: 1rem;
+}
+</style>
 
 <script>
-import { formatCoords } from "../utilities/format.js";
-
 let Vmapbox = {};
 
 if (process.isClient) {
@@ -27,14 +55,16 @@ if (process.isClient) {
 }
 export default {
   name: "MacMapMarker",
-  props: ["coordinates", "path"],
+  props: ["coordinates", "path", "popupLabel"],
   components: {
     MglMarker: Vmapbox.MglMarker,
+    MglPopup: Vmapbox.MglPopup,
   },
   data() {
     return {
       markerColor: "orange",
       randomKey: "",
+      popupStatus: false,
     };
   },
   watch: {

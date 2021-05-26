@@ -13,5 +13,6 @@ export default function (Vue, { router, head, isClient }) {
     Vue.use(VueMapbox);
     Vue.component('MglMap', VueMapbox.MglMap);
     Vue.component('MglMarker', VueMapbox.MglMarker);
+    Vue.component('MglPopup', VueMapbox.MglPopup);
   }
 }

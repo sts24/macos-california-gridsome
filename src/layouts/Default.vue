@@ -133,10 +133,12 @@ export default {
   --marker: var(--orange);
 
   --overlay: rgba(255, 255, 255, 0.8);
+
+  --font: -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
-  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font);
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
