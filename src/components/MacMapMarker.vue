@@ -34,7 +34,7 @@
   border-radius: 10px;
   box-shadow: 0 0 1rem rgba(black, 0.5);
 
-  background: var(--overlay);
+  background: var(--frost);
   border: 1px solid white;
   backdrop-filter: saturate(180%) blur(10px);
 }

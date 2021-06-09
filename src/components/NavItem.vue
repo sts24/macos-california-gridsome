@@ -85,7 +85,7 @@ export default {
   margin-top: 0.5em;
   text-align: center;
   font-weight: bold;
-  color: black;
+  color: var(--text);
   font-size: 0.875rem;
 
   @media (min-width: 768px) {

@@ -132,9 +132,20 @@ export default {
 
   --marker: var(--orange);
 
-  --overlay: rgba(255, 255, 255, 0.8);
+  --frost: rgba(255, 255, 255, 0.8);
+
+  --subtle-text: rgba(black, 0.8);
 
   --font: -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --frost: rgba(0, 0, 0, 0.8);
+    --bg: #000;
+    --text: #fff;
+    --subtle-text: rgba(255, 255, 255, 0.8);
+  }
 }
 
 html {
@@ -188,7 +199,7 @@ body {
   text-align: center;
   z-index: 100;
   padding: 1rem;
-  background: var(--overlay);
+  background: var(--frost);
   backdrop-filter: saturate(180%) blur(10px);
   grid-column: 1 / 2;
   grid-row: 1 / 2;

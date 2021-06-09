@@ -53,8 +53,8 @@ export default {
     },
     updateHeight() {
       const sidebar = window.document.querySelector(".location-content");
-      const appHeaderHeight = window.document.querySelector(".app-header")
-        .offsetHeight;
+      const appHeaderHeight =
+        window.document.querySelector(".app-header").offsetHeight;
       const navHeight = window.document.querySelector(".app-nav").offsetHeight;
 
       const globalElementsHeight = appHeaderHeight + navHeight;
@@ -81,11 +81,11 @@ export default {
 }
 
 .location-content {
-  background: var(--overlay);
+  background: var(--frost);
   backdrop-filter: saturate(180%) blur(10px);
 
   border-radius: 10px 10px 0 0;
-  border: 1px solid white;
+  border: 1px solid var(--bg);
   box-shadow: 0 0 1rem rgba(black, 0.5);
 
   order: 2;
@@ -103,6 +103,16 @@ export default {
   bottom: 0;
 
   margin: 1rem 1rem 0 1rem;
+
+  a {
+    color: var(--link);
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
   @media (min-width: 768px) {
     grid-column: 2 / 3;
@@ -150,6 +160,6 @@ p.release-date {
 
 p small {
   font-size: 75%;
-  color: #555;
+  color: var(--subtle-text);
 }
 </style>
