@@ -39,7 +39,7 @@ export default {
     return {
       accessToken:
         "pk.eyJ1Ijoic3RzMjQiLCJhIjoiOVB0MlNrbyJ9.aIGsCG9-ISYzL-jNTaz5cg",
-      mapStyle: "mapbox://styles/mapbox/outdoors-v11",
+      mapStyle: "mapbox://styles/mapbox/satellite-streets-v11",
       coords: [-119.44944, 37.16611], // defaults to center of california
       zoom: 5,
       allLocations: [],
