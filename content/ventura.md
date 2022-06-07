@@ -2,7 +2,7 @@
 title: Ventura
 releaseDate: 2022
 version: "13.0"
-location: "36.270443,-121.807833"
+location: "34.278619,-119.299602"
 slug: ventura
 image:
 ---
