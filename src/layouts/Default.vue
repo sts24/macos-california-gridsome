@@ -112,132 +112,127 @@ export default {
 };
 </script>
 
-<style lang="scss">
-:root {
-  --aqua: rgb(0, 122, 255);
-  --brown: rgba(162, 132, 94);
-  --gray: rgb(142, 142, 147);
-  --green: rgb(40, 205, 65);
-  --indigo: rgb(88, 86, 214);
-  --orange: rgb(255, 149, 0);
-  --pink: rgb(255, 45, 85);
-  --purple: rgb(175, 82, 222);
-  --red: rgb(255, 59, 48);
-  --teal: rgb(90, 200, 250);
-  --yellow: rgb(255, 204, 0);
-
-  --bg: #fff;
-  --text: #000;
-  --link: var(--aqua);
-
-  --marker: var(--orange);
-
-  --frost: rgba(255, 255, 255, 0.8);
-
-  --subtle-text: rgba(black, 0.8);
-
-  --font: -apple-system, "Helvetica Neue", Arial, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
+<style>
   :root {
-    --frost: rgba(0, 0, 0, 0.8);
-    --bg: #000;
-    --text: #fff;
-    --subtle-text: rgba(255, 255, 255, 0.8);
+    --aqua: rgb(0, 122, 255);
+    --brown: rgba(162, 132, 94);
+    --gray: rgb(142, 142, 147);
+    --green: rgb(40, 205, 65);
+    --indigo: rgb(88, 86, 214);
+    --orange: rgb(255, 149, 0);
+    --pink: rgb(255, 45, 85);
+    --purple: rgb(175, 82, 222);
+    --red: rgb(255, 59, 48);
+    --teal: rgb(90, 200, 250);
+    --yellow: rgb(255, 204, 0);
+    --bg: #fff;
+    --text: #000;
+    --link: var(--aqua);
+    --marker: var(--orange);
+    --frost: rgba(255, 255, 255, 0.8);
+    --subtle-text: rgba(black, 0.8);
+    --font: -apple-system, "Helvetica Neue", Arial, sans-serif;
   }
-}
 
-html {
-  font-family: var(--font);
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --frost: rgba(0, 0, 0, 0.8);
+      --bg: #000;
+      --text: #fff;
+      --subtle-text: rgba(255, 255, 255, 0.8);
+    }
+  }
+  html {
+    font-family: var(--font);
+    font-size: 16px;
+    word-spacing: 1px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-}
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
 
-.page-error {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-  width: 100vw;
-
-  text-align: center;
-
-  a {
+  .page-error {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+  }
+  .page-error a {
     color: var(--link);
   }
-}
 
-.app-container {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  height: 100vh;
-  max-height: 100vh;
-
-  overflow: hidden;
-}
-
-.app-header {
-  text-align: center;
-  z-index: 100;
-  padding: 1rem;
-  background: var(--frost);
-  backdrop-filter: saturate(180%) blur(10px);
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
-.app-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-
-  @media (min-width: 768px) {
-    font-size: 2rem;
+  .app-container {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
   }
-}
-.app-description {
-  font-size: 0.875rem;
-  a {
+
+  .app-header {
+    text-align: center;
+    z-index: 100;
+    padding: 1rem;
+    background: var(--frost);
+    backdrop-filter: saturate(180%) blur(10px);
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  @media (min-width: 768px) {
+    .app-title {
+      font-size: 2rem;
+    }
+  }
+
+  .app-description {
+    font-size: 0.875rem;
+  }
+  .app-description a {
     color: var(--link);
   }
   @media (min-width: 768px) {
-    font-size: 1rem;
+    .app-description {
+      font-size: 1rem;
+    }
   }
-}
 
-.app {
-  grid-column: 1 / 2;
-  grid-row: 1 / 4;
-  display: grid;
-
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-
-  position: relative;
-
+  .app {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+  }
   @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
+    .app {
+      grid-template-columns: 1fr 1fr;
+    }
   }
-
   @media (min-width: 1024px) {
-    grid-template-columns: 2fr 1fr;
+    .app {
+      grid-template-columns: 2fr 1fr;
+    }
   }
-}
 </style>

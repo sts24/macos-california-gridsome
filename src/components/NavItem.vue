@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .release-icon {
   text-decoration: none;
 
@@ -40,8 +40,10 @@ export default {
   width: 60px;
   height: 60px;
   margin: 0 0.5rem;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .release-icon {
     width: 100px;
     height: 100px;
   }
@@ -73,8 +75,10 @@ export default {
   grid-row: 1 / 2;
   text-align: center;
   text-shadow: 0 0 5px black;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .link-number {
     font-size: 1.5em;
   }
 }
@@ -87,9 +91,12 @@ export default {
   font-weight: bold;
   color: var(--text);
   font-size: 0.875rem;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .release-title {
     font-size: 1rem;
   }
 }
+
 </style>

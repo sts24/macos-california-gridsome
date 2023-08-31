@@ -95,7 +95,7 @@ query AllLocations {
 </static-query>
 
 
-<style lang="scss">
+<style>
 .map-area {
   order: 1;
   background: var(--gray);

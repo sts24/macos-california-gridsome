@@ -25,7 +25,7 @@
   </ClientOnly>
 </template>
 
-<style lang="scss">
+<style>
 .mapboxgl-popup-tip {
   display: none;
 }

@@ -70,96 +70,90 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.location-content h1 {
-  font-size: 1.4em;
-  margin-bottom: 0;
+<style>
+  .location-content h1 {
+    font-size: 1.4em;
+    margin-bottom: 0;
+  }
 
   @media (min-width: 1024px) {
-    font-size: 2em;
+    .location-content h1 {
+      font-size: 2em;
+    }
   }
-}
-
-.location-content {
-  background: var(--frost);
-  backdrop-filter: saturate(180%) blur(10px);
-
-  border-radius: 10px 10px 0 0;
-  border: 1px solid var(--bg);
-  box-shadow: 0 0 1rem rgba(black, 0.5);
-
-  order: 2;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  z-index: 100;
-
-  overflow-y: scroll;
-
-  position: absolute;
-  bottom: 0;
-
-  margin: 1rem 1rem 0 1rem;
-
-  a {
+  .location-content {
+    background: var(--frost);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-radius: 10px 10px 0 0;
+    border: 1px solid var(--bg);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: 100;
+    overflow-y: scroll;
+    position: absolute;
+    bottom: 0;
+    margin: 1rem 1rem 0 1rem;
+  }
+  .location-content a {
     color: var(--link);
     font-weight: bold;
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
+  }
+  .location-content a:hover {
+    text-decoration: underline;
+  }
+  @media (min-width: 768px) {
+    .location-content {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 10px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .location-content {
+      padding: 2rem;
     }
   }
 
-  @media (min-width: 768px) {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 10px;
+  p.release-date {
+    margin: 1rem 0;
+    font-size: 1.5em;
   }
 
+  .location-content p {
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
   @media (min-width: 1200px) {
-    padding: 2rem;
+    .location-content p {
+      font-size: 1.25em;
+    }
   }
-}
 
-p.release-date {
-  margin: 1rem 0;
-  font-size: 1.5em;
-}
-
-.location-content p {
-  font-size: 1em;
-  margin-bottom: 1em;
-
-  @media (min-width: 1200px) {
-    font-size: 1.25em;
+  .location-content .cld-image {
+    order: -1;
+    margin: 0 0 2rem 0;
+    width: 100%;
+    height: auto;
+    display: block;
   }
-}
-
-.location-content .cld-image {
-  order: -1;
-  margin: 0 0 2rem 0;
-  width: 100%;
-  height: auto;
-  display: block;
-
-  img {
+  .location-content .cld-image img {
     width: 100%;
     height: auto;
   }
-}
 
-p small {
-  font-size: 75%;
-  color: var(--subtle-text);
-}
+  p small {
+    font-size: 75%;
+    color: var(--subtle-text);
+  }
 </style>

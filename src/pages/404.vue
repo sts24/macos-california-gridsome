@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .standard-page {
   grid-row: 3 / 4;
   grid-column: 1 / 3;

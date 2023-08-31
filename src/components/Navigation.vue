@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .app-nav {
   padding: 1rem;
   overflow-x: scroll;
